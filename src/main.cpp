@@ -9,23 +9,15 @@
 #include "state.h"
 #include "Flash/Flash.h"
 
-#ifdef ESP8266
-#include "espWiFi.h"
-#endif
-
 void refreshData();
 
 //------------------------------------------------------------------------------
 
 void setup()
 {
-#ifdef ESP8266
-    ESP.wdtEnable(WDTO_1S);
     Serial.begin(115200);
-    Wifi::establish();
-#else
-    Serial.begin(9600);
-#endif
+
+    Hardware::SerialBT.begin("LED-Cube"); //Bluetooth device name
 
     Flash::init();
 }

@@ -11,7 +11,7 @@
 #include "../../src/hardware.h"
 
 
-namespace GPIO
+namespace myGPIO
 {
     /// Enumeration of digital and analog ports.
     ///
@@ -174,6 +174,38 @@ namespace GPIO
         D10 = 1,
         A0 = A0
     };
+#endif
+
+#ifdef ESP32
+
+    enum class Port : uint8_t
+    {
+        D36 = 36,
+        D39 = 39,
+        D34 = 34,
+        D35 = 35,
+        D32 = 32,
+        D33 = 33,
+        D25 = 25,
+        D26 = 26,
+        D27 = 27,
+        D14 = 14,
+        D12 = 12,
+        D13 = 13,
+        D23 = 23,
+        D22 = 22,
+        D21 = 21,
+        D19 = 19,
+        D18 = 18,
+        D5 = 5,
+        D17 = 17,
+        D16 = 16,
+        D4 = 4,
+        D0 = 0,
+        D2 = 2,
+        D15 = 15
+    };
+
 #endif
 
 } // namespace GPIO

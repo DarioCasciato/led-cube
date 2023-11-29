@@ -27,7 +27,7 @@ namespace Flash
 
     void init()
     {
-    #ifdef ESP8266
+    #if defined(ESP32) || defined(ESP8266)
         EEPROM.begin(sizeof(Flash::Structure));
     #else
         EEPROM.begin();
