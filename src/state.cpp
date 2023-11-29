@@ -12,21 +12,21 @@
 
 namespace State
 {
-    States state = States::st_blink;
+    States state = States::st_white;
 
     void stateDriver()
     {
         switch (State::state)
         {
-            case State::st_blink:
+            case State::st_white:
                 Mode::blink();
                 break;
 
-            case State::st_random:
+            case State::st_animation:
                 Mode::random();
                 break;
 
-            case State::st_test:
+            case State::st_random:
                 Mode::test();
                 break;
 
