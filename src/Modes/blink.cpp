@@ -3,9 +3,9 @@
 // =============================================================================
 
 #include <Arduino.h>
-#include "states.h"
+#include "Modes.h"
 
-void CubeState::blink()
+void Mode::blink()
 {
 
 }
