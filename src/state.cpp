@@ -44,7 +44,7 @@ namespace State
         // change state on button press
         if(Hardware::btn0.getEdgePos())
         {
-            state = static_cast<States>((static_cast<uint8_t>(state) + 1) % static_cast<uint8_t>(States::NUM_STATES));
+            state = (State::States)((state + 1) % States::NUM_STATES);
         }
     }
 
