@@ -23,11 +23,11 @@ namespace State
                 break;
 
             case State::st_animation:
-                Mode::random();
+                Mode::animation();
                 break;
 
             case State::st_random:
-                Mode::test();
+                Mode::random();
                 break;
 
             default:    // catch invalid state (implement safety backup)

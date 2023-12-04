@@ -5,7 +5,7 @@
 #include <Arduino.h>
 #include "Modes.h"
 
-void Mode::random()
+void Mode::animation()
 {
 
 }

@@ -9,7 +9,7 @@ namespace Mode
     // TODO: create cube object somewhere. idea: rename colors.h and place there
     void blink();
 
-    void random();
+    void animation();
 
-    void test();
+    void random();
 }
