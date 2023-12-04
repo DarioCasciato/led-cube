@@ -8,6 +8,20 @@
 #ifndef ARDUINO_OBJECTS_CUBE_
 #define ARDUINO_OBJECTS_CUBE_
 
+
+/*These defines are using binary literals (0bXXX) where XXX represents the state of the Blue, Red, and Green LEDs.
+You can use these defines in your code to set the color of your LED by controlling the appropriate digital pins
+connected to each color of the LED.*/
+
+#define OFF____     0b000
+#define GREEN__     0b001
+#define RED____     0b010
+#define YELLOW_     0b011
+#define BLUE___     0b100
+#define CYAN___     0b101
+#define MAGENTA     0b110
+#define WHITE__     0b111
+
 class Cube
 {
 
@@ -55,5 +69,10 @@ private:
     void writeAddress(uint8_t address);
     void writeColor(uint8_t color);
 };
+
+namespace CB
+{
+    extern Cube cube;
+} // namespace CB
 
 #endif // ARDUINO_OBJECTS_CUBE_

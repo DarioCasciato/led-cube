@@ -4,47 +4,53 @@
 
 #include <Arduino.h>
 #include "Modes.h"
+#include "../Cube/Cube.h"
+#include "../utils/Timer/Timer.h"
 
-#define RED 0
-#define GREEN 1
-#define BLUE 2
-#define WHITE 3
-
-constexpr uint8_t redLayer[6][6] = {
-    {RED, RED, RED, RED, RED, RED},
-    {RED, RED, RED, RED, RED, RED},
-    {RED, RED, RED, RED, RED, RED},
-    {RED, RED, RED, RED, RED, RED},
-    {RED, RED, RED, RED, RED, RED},
-    {RED, RED, RED, RED, RED, RED}
-};
-
-constexpr uint8_t greenLayer[6][6] = {
-    {GREEN, GREEN, GREEN, GREEN, GREEN, GREEN},
-    {GREEN, GREEN, GREEN, GREEN, GREEN, GREEN},
-    {GREEN, GREEN, GREEN, GREEN, GREEN, GREEN},
-    {GREEN, GREEN, GREEN, GREEN, GREEN, GREEN},
-    {GREEN, GREEN, GREEN, GREEN, GREEN, GREEN},
-    {GREEN, GREEN, GREEN, GREEN, GREEN, GREEN}
-};
-
-void drawLayer(uint8_t layerNumber, uint8_t array[6][6]);
-
+constexpr uint16_t delayTime = 500;
 
 
 void Mode::blink()
 {
-    drawLayer(0, redLayer);
-    drawLayer(1, greenLayer);
-    drawLayer(2, redLayer);
-    drawLayer(3, greenLayer);
-    drawLayer(4, redLayer);
-    drawLayer(5, greenLayer);
-}
+    static Timer timer;
+    if(0 == timer.elapsedStart())
+        timer.start();
 
 
-
-if(color == GREEN)
-{
-
+    if(timer.elapsed(delayTime))
+    {
+        CB::cube.setCubeColor(OFF____);
+    }
+    else if(timer.elapsed(delayTime*2))
+    {
+        CB::cube.setCubeColor(GREEN__);
+    }
+    else if(timer.elapsed(delayTime*3))
+    {
+        CB::cube.setCubeColor(RED____);
+    }
+    else if(timer.elapsed(delayTime*4))
+    {
+        CB::cube.setCubeColor(YELLOW_);
+    }
+    else if(timer.elapsed(delayTime*5))
+    {
+        CB::cube.setCubeColor(BLUE___);
+    }
+    else if(timer.elapsed(delayTime*6))
+    {
+        CB::cube.setCubeColor(CYAN___);
+    }
+    else if(timer.elapsed(delayTime*7))
+    {
+        CB::cube.setCubeColor(MAGENTA);
+    }
+    else if(timer.elapsed(delayTime*8))
+    {
+        CB::cube.setCubeColor(WHITE__);
+    }
+    else if(timer.elapsed(delayTime*9))
+    {
+        timer.stop();
+    }
 }

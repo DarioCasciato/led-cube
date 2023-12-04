@@ -12,22 +12,22 @@
 
 namespace State
 {
-    States state = States::st_white;
+    States state = States::st_fixed;
 
     void stateDriver()
     {
         switch (State::state)
         {
-            case State::st_white:
+            case State::st_fixed:
+                Mode::fix();
+                break;
+
+            case State::st_blink:
                 Mode::blink();
                 break;
 
-            case State::st_animation:
-                Mode::animation();
-                break;
-
             case State::st_random:
-                Mode::random();
+                Mode::mRandom();
                 break;
 
             default:    // catch invalid state (implement safety backup)
@@ -42,7 +42,7 @@ namespace State
 
 
         // change state on button press
-        if(Hardware::btn0.getEdgePos())
+        if(Hardware::modeButton.getEdgePos())
         {
             state = (State::States)((state + 1) % States::NUM_STATES);
         }

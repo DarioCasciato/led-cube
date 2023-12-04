@@ -11,8 +11,8 @@ namespace State
 {
     enum States : uint8_t
     {
-        st_white,
-        st_animation,
+        st_fixed,
+        st_blink,
         st_random,
 
         NUM_STATES

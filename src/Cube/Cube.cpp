@@ -3,6 +3,7 @@
 // =========================================
 
 #include "Cube.h"
+#include "../hardware.h"
 
 Cube::Cube(uint8_t pin_data,
            uint8_t pin_clock,
@@ -85,3 +86,12 @@ void Cube::writeColor(uint8_t color)
         SR.write((color & (1 << i)) ? 1 : 0); // reads the 3 bits individually
     }
 }
+
+namespace CB
+{
+    Cube cube((uint8_t) Hardware::Port::SER,
+              (uint8_t) Hardware::Port::RCLK,
+              (uint8_t) Hardware::Port::nRCLR,
+              (uint8_t) Hardware::Port::SRCLK,
+              (uint8_t) Hardware::Port::nSRCLR);
+} // namespace Cube
