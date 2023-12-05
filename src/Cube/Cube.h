@@ -45,6 +45,9 @@ public:
     /// @param data Data to draw
     void drawLayer(uint8_t layer, uint8_t data[6][6]);
 
+    /// @brief Draw the whole cube
+    ///
+    /// @param layern Layer n
     void drawCube(uint8_t layer0[6][6],
                   uint8_t layer1[6][6],
                   uint8_t layer2[6][6],
@@ -52,6 +55,9 @@ public:
                   uint8_t layer4[6][6],
                   uint8_t layer5[6][6]);
 
+    /// @brief Set the color of the whole cube
+    ///
+    /// @param color Color to set
     void setCubeColor(uint8_t color);
 
     /// @brief Clear the cube
@@ -66,13 +72,20 @@ private:
 
     ShiftRegister SR;
 
+    /// @brief Write the address to the shift register
+    ///
+    /// @param address Address to write
     void writeAddress(uint8_t address);
+
+    /// @brief Write the color to the shift register
+    ///
+    /// @param color Color to write
     void writeColor(uint8_t color);
 };
 
 namespace CB
 {
-    extern Cube cube;
+    extern Cube cube; // Cube object
 } // namespace CB
 
 #endif // ARDUINO_OBJECTS_CUBE_

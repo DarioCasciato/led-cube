@@ -3,6 +3,7 @@
 // =========================================
 
 #include <Arduino.h>
+#include "configurations.h"
 
 #ifndef ARDUINO_OBJECTS_SHIFT_REGISTER_
 #define ARDUINO_OBJECTS_SHIFT_REGISTER_
@@ -27,12 +28,18 @@ public:
                   uint8_t pin_sClock,
                   uint8_t pin_sClear);
 
+    /// @brief Set the output register
     void set();
 
+    /// @brief Write a bit to the shift register
+    ///
+    /// @param data Bit to write
     void write(bool data);
 
+    /// @brief Clear the output register
     void clear();
 
+    /// @brief Clear the storage register
     void clearStorage();
 
 private:
@@ -42,9 +49,12 @@ private:
     uint8_t pin_sClock_;
     uint8_t pin_sClear_;
 
-    const uint8_t delay = 10; // delay in microseconds
+    const uint8_t delay = SR_DELAY; // delay in microseconds
+
+    /// @brief Cool down the shift register
     void coolDown() { delayMicroseconds(delay); };
 
+    /// @brief Set the storage clock
     void sClock();
 };
 
