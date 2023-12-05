@@ -69,7 +69,7 @@ void Cube::writeAddress(uint8_t address)
 {
     SR.clearStorage();
 
-    SR.write(1); // first bit has to be set, for G2
+    SR.write(0); // first bit has to be 0, for G2
 
     // layer are the first 3 bits that have to be set
     for (uint8_t i = 2; i >= 0; i--)
