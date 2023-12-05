@@ -1,9 +1,9 @@
 // =========================================
-// Utils | LED_RGB
+// Utils | ShiftRegister
 // =========================================
 
 #include <Arduino.h>
-#include "configurations.h"
+#include "../../src/configurations.h"
 
 #ifndef ARDUINO_OBJECTS_SHIFT_REGISTER_
 #define ARDUINO_OBJECTS_SHIFT_REGISTER_
@@ -49,7 +49,7 @@ private:
     uint8_t pin_sClock_;
     uint8_t pin_sClear_;
 
-    const uint8_t delay = SR_DELAY; // delay in microseconds
+    const uint16_t delay = SR_DELAY; // delay in microseconds
 
     /// @brief Cool down the shift register
     void coolDown() { delayMicroseconds(delay); };
