@@ -28,7 +28,7 @@ void Mode::mRandom()
             }
         }
 
-        CB::cube.drawCube(randomLayer, randomLayer, randomLayer, randomLayer, randomLayer, randomLayer);
         timer.start();
     }
+    CB::cube.drawCube(randomLayer, randomLayer, randomLayer, randomLayer, randomLayer, randomLayer);
 }

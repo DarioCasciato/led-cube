@@ -33,8 +33,8 @@ public:
 
     /// @brief Write a bit to the shift register
     ///
-    /// @param data Bit to write
-    void write(bool data);
+    /// @param data_ Bit to write
+    void write(bool data_);
 
     /// @brief Clear the output register
     void clear();
@@ -52,7 +52,8 @@ private:
     const uint16_t delay = SR_DELAY; // delay in microseconds
 
     /// @brief Cool down the shift register
-    void coolDown() { delayMicroseconds(delay); };
+    //void coolDown() { delayMicroseconds(delay); };
+    void coolDown() { return; };
 
     /// @brief Set the storage clock
     void sClock();

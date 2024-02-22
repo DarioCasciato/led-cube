@@ -14,12 +14,12 @@ You can use these defines in your code to set the color of your LED by controlli
 connected to each color of the LED.*/
 
 #define OFF____     0b000
-#define GREEN__     0b001
+#define BLUE___     0b001
 #define RED____     0b010
-#define YELLOW_     0b011
-#define BLUE___     0b100
+#define MAGENTA     0b011
+#define GREEN__     0b100
 #define CYAN___     0b101
-#define MAGENTA     0b110
+#define YELLOW_     0b110
 #define WHITE__     0b111
 
 class Cube

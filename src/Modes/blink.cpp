@@ -10,47 +10,43 @@
 constexpr uint16_t delayTime = 500;
 
 
-void Mode::blink()
-{
+void Mode::blink(){
     static Timer timer;
-    if(0 == timer.elapsedStart())
-        timer.start();
-
-
-    if(timer.elapsed(delayTime))        // Frame 1
-    {
-        CB::cube.setCubeColor(OFF____);
+    static int frame = 0; // Frame counter
+    if (0 == timer.elapsedStart()) {
+         timer.start();
     }
-    else if(timer.elapsed(delayTime*2)) // Frame 2
-    {
-        CB::cube.setCubeColor(GREEN__);
+    if (timer.elapsed(delayTime)) {
+        frame++; // Move to the next frame
+        timer.start(); // Reset the timer for the next frame
     }
-    else if(timer.elapsed(delayTime*3)) // Frame 3
-    {
+    switch(frame) {
+        case 0:                                                              
         CB::cube.setCubeColor(RED____);
-    }
-    else if(timer.elapsed(delayTime*4)) // Frame 4
-    {
-        CB::cube.setCubeColor(YELLOW_);
-    }
-    else if(timer.elapsed(delayTime*5)) // Frame 5
-    {
-        CB::cube.setCubeColor(BLUE___);
-    }
-    else if(timer.elapsed(delayTime*6)) // Frame 6
-    {
-        CB::cube.setCubeColor(CYAN___);
-    }
-    else if(timer.elapsed(delayTime*7)) // Frame 7
-    {
-        CB::cube.setCubeColor(MAGENTA);
-    }
-    else if(timer.elapsed(delayTime*8)) // Frame 8
-    {
-        CB::cube.setCubeColor(WHITE__);
-    }
-    else if(timer.elapsed(delayTime*9)) // Reset animation
-    {
-        timer.start();
-    }
+        break;
+        case 1:
+        CB::cube.setCubeColor(GREEN__);
+        break;
+        case 2:             
+        CB::cube.setCubeColor(YELLOW_);             
+        break;         
+        case 3:             
+        CB::cube.setCubeColor(WHITE__);             
+        break;         
+        case 4:             
+        CB::cube.setCubeColor(CYAN___);             
+        break;         
+        case 5:             
+        CB::cube.setCubeColor(BLUE___);             
+        break;         
+        case 6:             
+        CB::cube.setCubeColor(MAGENTA);             
+        break;         
+        /*case 7:             
+        CB::cube.setCubeColor(OFF____);             
+        break;       */  
+        default:             
+        frame = 0; // Reset the frame counter after the last known frame            
+        break;     
+    } 
 }

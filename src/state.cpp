@@ -7,12 +7,13 @@
 #include "configurations.h"
 #include "Timer.h"
 #include "Modes/Modes.h"
+#include "Logging.h"
 
 //------------------------------------------------------------------------------
 
 namespace State
 {
-    States state = States::st_fixed;
+    States state = States::st_rgb;
 
     void stateDriver()
     {
@@ -30,15 +31,17 @@ namespace State
                 Mode::mRandom();
                 break;
 
+            case State::st_rgb:
+                Mode::rgb();
+                break;
+                
+            case State::st_planes:
+                Mode::movingLayers();
+                break;
+
             default:    // catch invalid state (implement safety backup)
-            goto exception;
                 break;
         }
-
-        return;
-
-        exception:
-            for(;;) {}
 
 
         // change state on button press

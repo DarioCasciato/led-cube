@@ -12,4 +12,8 @@ namespace Mode
     void blink();
 
     void mRandom();
+
+    void rgb();
+
+    void movingLayers();
 }

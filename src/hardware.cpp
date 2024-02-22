@@ -8,7 +8,7 @@
 
 namespace Hardware
 {
-    BluetoothSerial SerialBT;
+    //BluetoothSerial SerialBT;
 
     uint8_t btn0State = false;
     EdgeDetection modeButton(&btn0State);
@@ -22,8 +22,10 @@ namespace Hardware
         pinMode((uint8_t)Port::modeButton, INPUT);
         pinMode((uint8_t)Port::btn1, INPUT);
         pinMode((uint8_t)Port::stateLED, OUTPUT);
+        pinMode((uint8_t)Port::OE, OUTPUT);
 
         myGPIO::setPort(Port::stateLED, false);
+        myGPIO::setPort(Port::OE, true);
     }
 
     void updateHardware()

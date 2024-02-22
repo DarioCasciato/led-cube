@@ -19,6 +19,7 @@ void Cube::drawLayer(uint8_t layer, uint8_t data[6][6])
     // layer are the first 3 bits that have to be set
     writeAddress(layer);
 
+
     for (uint8_t i = 0; i < 6; i++)
     {
         for (uint8_t j = 0; j < 6; j++)
@@ -69,10 +70,10 @@ void Cube::writeAddress(uint8_t address)
 {
     SR.clearStorage();
 
-    SR.write(0); // first bit has to be 0, for G2
+    SR.write(1); // first bit has to be 1, for G2
 
     // layer are the first 3 bits that have to be set
-    for (uint8_t i = 2; i >= 0; i--)
+    for (uint8_t i = 2; i != 255; i--)
     {
         SR.write((address & (1 << i)) ? 1 : 0); // reads the 3 bits individually
     }
@@ -81,17 +82,15 @@ void Cube::writeAddress(uint8_t address)
 void Cube::writeColor(uint8_t color)
 {
     // color are the last 3 bits that have to be set
-    for (uint8_t i = 2; i >= 0; i--)
+    for (uint8_t i = 2; i != 255; i--)
     {
         SR.write((color & (1 << i)) ? 1 : 0); // reads the 3 bits individually
+
     }
 }
 
+
 namespace CB
 {
-    Cube cube((uint8_t) Hardware::Port::SER,
-              (uint8_t) Hardware::Port::RCLK,
-              (uint8_t) Hardware::Port::nRCLR,
-              (uint8_t) Hardware::Port::SRCLK,
-              (uint8_t) Hardware::Port::nSRCLR);
+    Cube cube((uint8_t) Hardware::Port::SER, (uint8_t) Hardware::Port::RCLK, (uint8_t) Hardware::Port::nRCLR, (uint8_t) Hardware::Port::SRCLK, (uint8_t) Hardware::Port::nSRCLR);
 } // namespace Cube

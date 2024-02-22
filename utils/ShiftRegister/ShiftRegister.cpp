@@ -37,12 +37,11 @@ void ShiftRegister::set()
     digitalWrite(pin_clock_, LOW);
 }
 
-void ShiftRegister::write(bool data)
+void ShiftRegister::write(bool data_)
 {
-    digitalWrite(pin_data_, data);
+    digitalWrite(pin_data_, data_);
     coolDown();
     sClock();
-    digitalWrite(pin_data_, LOW);
 }
 
 void ShiftRegister::clear()
@@ -65,4 +64,5 @@ void ShiftRegister::sClock()
     digitalWrite(pin_sClock_, HIGH);
     coolDown();
     digitalWrite(pin_sClock_, LOW);
+    coolDown();
 }

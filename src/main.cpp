@@ -16,10 +16,12 @@ void refreshData();
 void setup()
 {
     Serial.begin(115200);
+    randomSeed(analogRead(A0));
 
-    Hardware::SerialBT.begin("LED-Cube"); //Bluetooth device name
+    //Hardware::SerialBT.begin("LED-Cube"); //Bluetooth device name
 
     Flash::init();
+    Hardware::init();
 }
 
 void loop()

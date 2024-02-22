@@ -14,6 +14,8 @@ namespace State
         st_fixed,
         st_blink,
         st_random,
+        st_rgb,
+        st_planes,
 
         NUM_STATES
     };
