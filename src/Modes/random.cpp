@@ -9,7 +9,7 @@
 
 namespace
 {
-    uint8_t randomLayer[6][6] = {0};
+    uint8_t randomLayer[6][6][6] = {0};
 }
 
 void Mode::mRandom()
@@ -24,11 +24,14 @@ void Mode::mRandom()
         {
             for(uint8_t j = 0; j < 6; ++j)
             {
-                randomLayer[i][j] = random(0, 8);
+                for(uint8_t k = 0; k < 6; ++k)
+                {
+                    randomLayer[i][j][k] = random(0, 8);
+                }
             }
         }
 
         timer.start();
     }
-    CB::cube.drawCube(randomLayer, randomLayer, randomLayer, randomLayer, randomLayer, randomLayer);
+    CB::cube.drawCube(randomLayer[0], randomLayer[1], randomLayer[2], randomLayer[3], randomLayer[4], randomLayer[5]);
 }
